@@ -1,0 +1,10 @@
+variant,params_M,GFLOPs,precision_pct,recall_pct,mAP50_pct,mAP50_95_pct,source
+baseline,2.58,6.3,87.7,75.9,82.9,55.2,manuscript Table 1
+p2,2.68,8.7,88.1,76.5,83.4,56.5,response letter Table R1
+dah,2.08,5.4,88.6,77.5,84.6,57.5,manuscript Table 1
+legm,2.83,6.8,88.1,76.8,84.0,56.3,manuscript Table 1
+asf,2.59,6.5,88.0,77.0,83.7,56.0,manuscript Table 1
+dah_legm,2.33,5.9,88.8,78.2,85.9,57.6,manuscript Table 1
+dah_asf,2.09,5.6,88.9,79.0,85.3,57.6,manuscript Table 1
+legm_asf,2.84,7.0,88.5,78.0,85.0,56.9,manuscript Table 1
+full,2.34,6.1,89.2,80.1,86.2,57.7,manuscript Table 1
