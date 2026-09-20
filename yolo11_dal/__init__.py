@@ -1,4 +1,4 @@
-"""YOLO11-DAL manuscript-faithful reconstruction package."""
+"""YOLO11-DAL package."""
 
 from .model import VARIANTS, build_model, variant_summary
 
