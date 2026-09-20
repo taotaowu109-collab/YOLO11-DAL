@@ -1,0 +1,13 @@
+path: datasets/613e
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: insulator
+  1: insulator_stringdrop
+  2: insulator_breakage
+  3: insulator_flashover
+  4: damper
+  5: damper_defect
+  6: nest
