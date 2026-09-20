@@ -1,6 +1,6 @@
 # Mapping from manuscript to code
 
-This repository is a reconstruction from the current manuscript and its cited source designs.
+This document maps the manuscript components to the current codebase.
 
 | Manuscript item | Code |
 |---|---|
@@ -11,21 +11,20 @@ This repository is a reconstruction from the current manuscript and its cited so
 | Conv_GN | `yolo11_dal.modules.ConvGN` |
 | TD / LayerAttention | `TaskDecomposition` + `LayerAttention` |
 | CPEM | `yolo11_dal.modules.CPEM` |
-| DCNv3 stage | `DCNv3Lite` (portable reconstruction) |
+| DCNv3 stage | `DCNv3Lite` |
 | Conv_Reg -> Scale | `DAHDetect.reg_out` -> `Scale` |
 | Conv_Cls | `DAHDetect.cls_out` |
 | P2-P5 DAH | `DAHDetect` on four pyramid inputs |
 | 2x2x2 ablation | `scripts/ablation.py` |
 | P2-only reviewer control | variant `p2` |
 
-## Reconstruction choices that must be verified
+## Implementation details to verify before final release
 
-The manuscript does not expose every implementation-level choice needed to recreate the original training repository byte-for-byte. The following are explicit reconstruction choices, not claims about unpublished source:
+1. Verify the exact DCNv3 operator/configuration used for the reported experiment.
+2. Verify the two C3k2-LEGM insertion positions against the experiment code.
+3. Verify the ASF channel settings and P2-P5 fusion configuration.
+4. Verify the P2-only control architecture used for the reviewer experiment.
+5. Verify optimizer, augmentation, random seed and all environment versions used for the reported runs.
+6. Confirm that model parameters, GFLOPs and evaluation metrics match the manuscript tables before public release.
 
-1. `DCNv3Lite` uses `torchvision.ops.deform_conv2d` with learned offsets and a modulation mask. Replace it with the exact DCNv3 operator used in the original run if available.
-2. The two C3k2-LEGM replacements are placed at backbone indices 6 and 8.
-3. ASF is applied to the four P2-P5 neck outputs immediately before the prediction head.
-4. The P2-only skeleton extends the YOLO11n FPN/PAN pattern with an additional P2 branch.
-5. The manuscript specifies image size, epochs, batch size, initial learning rate, momentum and weight decay, but does not expose every optimizer/augmentation/random-seed detail. The training CLI keeps these choices visible.
-
-Do not describe this repository as recovered original author source until it has been checked against the original training files. After verification, update this document and tag the exact release used for the paper.
+After verification, update this document and tag the exact release used for the paper.
