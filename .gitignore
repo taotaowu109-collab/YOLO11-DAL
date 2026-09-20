@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.pt
+*.onnx
+*.engine
+*.cache
+.venv/
+venv/
+runs/
+datasets/
+.DS_Store
+.idea/
+.vscode/
