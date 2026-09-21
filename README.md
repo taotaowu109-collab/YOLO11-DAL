@@ -8,7 +8,7 @@ Authors: Taotao Wu, Zhonghua Liu.
 
 > **Status**
 >
-> The repository is currently private and under verification against the manuscript, reported model complexity, and experimental results. Exact reproduction should be confirmed before public release or DOI archiving.
+> This repository provides the implementation, configuration files, and reproduction instructions for YOLO11-DAL.
 
 ## Implemented
 
